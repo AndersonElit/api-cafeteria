@@ -1,6 +1,6 @@
 # api-cafeteria
 
-# crear y poblar tablas:
+crear y poblar tablas:
 
 la base de datos se creo en el gestor de base de datos postgres
 
