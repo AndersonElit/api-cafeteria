@@ -12,11 +12,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "productos")
+@Table(name = "ventas")
 public class VentasEntity {
 
-    @Id
-    @Embedded
+    @EmbeddedId
     @AttributeOverrides({
             @AttributeOverride( name = "orden", column = @Column(name = "orden")),
             @AttributeOverride( name = "idProducto", column = @Column(name = "id_producto"))

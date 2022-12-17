@@ -33,13 +33,13 @@ public class PgsProductoAdapter implements ProductoRepository {
     }
 
     @Override
-    public Boolean verificarUnidadesDisponibles(Integer idProducto, Integer unidadesVendidas) {
+    public Boolean verificarUnidadesDisponibles(Integer unidadesVendidas, Integer idProducto) {
         return pgsProductoDao.verificarUnidades(unidadesVendidas, idProducto);
     }
 
     @Override
     public void actualizarNumeroUnidades(Integer unidadesRestantes, Integer idProducto) {
-
+        this.pgsProductoDao.actualizarNumeroUnidades(unidadesRestantes, idProducto);
     }
 
     @Override

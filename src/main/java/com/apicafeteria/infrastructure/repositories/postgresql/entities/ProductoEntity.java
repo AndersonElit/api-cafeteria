@@ -46,8 +46,4 @@ public class ProductoEntity {
     @JoinColumn(name = "id_categoria")
     private CategoriaEntity categoria;
 
-    @OneToMany(mappedBy = "id.producto")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private Set<VentasEntity> ventas = new HashSet<>();
-
 }

@@ -27,7 +27,7 @@ public class VentasAdapter implements VentasPort {
                                         .idProducto(u.getId().getIdProducto())
                                         .build())
                                 .unidadesVendidas(
-                                        actualizarUnidades(u.getUnidadesVendidas(), u.getId().getIdProducto()) ?
+                                        actualizarUnidades(u.getUnidadesVendidas(), u.getId().getIdProducto())  ?
                                                 u.getUnidadesVendidas() : 0)
                                 .build())
                 .toList();
