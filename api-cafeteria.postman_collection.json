@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "6d4e154f-f79e-47b9-abf4-bb067f67e819",
+		"name": "api-cafeteria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LISTA_PRODUCTOS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhcGljYWZldGVyaWEiLCJleHAiOjE2NzEzMjI1NDYsImlhdCI6MTY3MTMwNDU0Nn0.5QfCZ26UQKkwS0f4ucxntWxWbQ-qN9OF8AsY9tEF-Qo3MspuLhv_fIwqFfSLhVLJoy-nyNEgL9ElNHv9j3BMOg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/lista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"lista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ELIMINAR_PRODUCTO",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/eliminar-producto/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"eliminar-producto",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTA_CATEGORIAS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/categorias/lista",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categorias",
+						"lista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREAR_PRODUCTO",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"CHURRO\",\n    \"referencia\": \"2222\",\n    \"precio\": 2500,\n    \"peso\": 10,\n    \"stock\": 1200,\n    \"categoria\": {\n        \"id\": 2,\n        \"categoria\": \"PANES\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/crear-producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"crear-producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTRAR_ORDEN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": {\n            \"idProducto\": 7\n        },\n        \"unidadesVendidas\": 23\n    },\n    {\n        \"id\": {\n            \"idProducto\": 14\n        },\n        \"unidadesVendidas\": 21\n    },\n    {\n        \"id\": {\n            \"idProducto\": 12\n        },\n        \"unidadesVendidas\": 32\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/ventas/registrar-orden",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"ventas",
+						"registrar-orden"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREAR_CATEGORIA",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"categoria\": \"PANES\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/categorias/crear-categoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categorias",
+						"crear-categoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACTUALIZAR_PRODUCTO",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 11,\n    \"nombre\": \"CAPUCHINO\",\n    \"referencia\": \"1114\",\n    \"precio\": 5000,\n    \"peso\": 8,\n    \"categoria\": {\n        \"id\": 1,\n        \"categoria\": \"BEBIDAS\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/productos/actualizar-producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"productos",
+						"actualizar-producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GENERAR_TOKEN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"apicafeteria\",\n    \"password\": \"apicafeteria\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
