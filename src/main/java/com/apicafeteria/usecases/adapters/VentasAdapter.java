@@ -6,6 +6,8 @@ import com.apicafeteria.core.venta.model.VentaId;
 import com.apicafeteria.core.venta.repository.VentasRepository;
 import com.apicafeteria.usecases.ports.VentasPort;
 import lombok.AllArgsConstructor;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,20 +19,22 @@ public class VentasAdapter implements VentasPort {
 
     @Override
     public void registrarOrden(List<Venta> productos) {
-        String nuevaOrden = UUID.randomUUID().toString();
 
-        List<Venta> listaConOrden = productos
-                .stream().map(u ->
-                        Venta.builder()
-                                .id(VentaId.builder()
-                                        .orden(nuevaOrden)
-                                        .idProducto(u.getId().getIdProducto())
-                                        .build())
-                                .unidadesVendidas(
-                                        actualizarUnidades(u.getUnidadesVendidas(), u.getId().getIdProducto())  ?
-                                                u.getUnidadesVendidas() : 0)
-                                .build())
-                .toList();
+        String nuevaOrden = UUID.randomUUID().toString();
+        List<Venta> listaConOrden = new ArrayList<>();
+        for(Venta producto : productos) {
+            listaConOrden.add(
+                    Venta.builder()
+                            .id(VentaId.builder()
+                                    .orden(nuevaOrden)
+                                    .idProducto(producto.getId().getIdProducto())
+                                    .build())
+                            .unidadesVendidas(
+                                    actualizarUnidades(producto.getUnidadesVendidas(), producto.getId().getIdProducto()) ?
+                                            producto.getUnidadesVendidas() : 0)
+                            .build()
+            );
+        }
 
         this.ventasRepository.registrarOrden(listaConOrden);
 
