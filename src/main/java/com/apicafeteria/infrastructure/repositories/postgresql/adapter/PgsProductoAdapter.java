@@ -27,4 +27,24 @@ public class PgsProductoAdapter implements ProductoRepository {
         this.pgsProductoDao.save(Mapper.map(request, ProductoEntity.class));
     }
 
+    @Override
+    public void eliminarProducto(Integer id) {
+        this.pgsProductoDao.deleteById(id);
+    }
+
+    @Override
+    public Boolean verificarUnidadesDisponibles(Integer idProducto, Integer unidadesVendidas) {
+        return pgsProductoDao.verificarUnidades(unidadesVendidas, idProducto);
+    }
+
+    @Override
+    public void actualizarNumeroUnidades(Integer unidadesRestantes, Integer idProducto) {
+
+    }
+
+    @Override
+    public Integer numeroUnidadesProducto(Integer idProducto) {
+        return pgsProductoDao.numeroUnidadesProducto(idProducto);
+    }
+
 }

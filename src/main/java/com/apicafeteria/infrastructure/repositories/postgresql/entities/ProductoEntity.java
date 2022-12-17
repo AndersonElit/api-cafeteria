@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -39,10 +42,12 @@ public class ProductoEntity {
     @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
 
-    //@ManyToOne(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
-    //@ManyToOne(cascade = { CascadeType.ALL })
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private CategoriaEntity categoria;
+
+    @OneToMany(mappedBy = "id.producto")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Set<VentasEntity> ventas = new HashSet<>();
 
 }

@@ -55,4 +55,16 @@ public class ProductoController {
         }
     }
 
+    @DeleteMapping("/eliminar-producto/{id}")
+    public ResponseEntity<Response> eliminarProducto(@PathVariable("id") Integer id){
+        Response response = Response.builder().build();
+        try {
+            this.productoService.eliminarProducto(id);
+            response.setCodigo(HttpStatus.OK.toString());
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

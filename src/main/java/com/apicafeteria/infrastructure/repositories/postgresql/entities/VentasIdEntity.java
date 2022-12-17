@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Data
@@ -13,10 +15,12 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class DetallesVentasIdEntity implements Serializable {
+public class VentasIdEntity implements Serializable {
 
-    private Integer idVenta;
-    private Integer idProducto;
-
+    private String orden;
+    //private Integer idProducto;
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    private ProductoEntity producto;
 
 }

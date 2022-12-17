@@ -11,4 +11,9 @@ public interface ProductoRepository {
 
     void crearProducto(ProductoRequest request);
 
+    void eliminarProducto(Integer id);
+    Boolean verificarUnidadesDisponibles(Integer unidadesVendidas, Integer idProducto);
+    void actualizarNumeroUnidades(Integer unidadesRestantes, Integer idProducto);
+    Integer numeroUnidadesProducto(Integer idProducto);
+
 }

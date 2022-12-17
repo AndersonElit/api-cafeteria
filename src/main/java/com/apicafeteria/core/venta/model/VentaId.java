@@ -1,4 +1,4 @@
-package com.apicafeteria.core.producto.requests;
+package com.apicafeteria.core.venta.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoriaRequest {
-    private String categoria;
+public class VentaId {
+    private String orden;
+    private Integer idProducto;
 }

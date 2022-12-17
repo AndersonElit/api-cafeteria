@@ -6,22 +6,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ventas")
+@Table(name = "productos")
 public class VentasEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "orden", column = @Column(name = "orden")),
+            @AttributeOverride( name = "idProducto", column = @Column(name = "id_producto"))
+    })
+    private VentasIdEntity id;
 
-    @Column(name = "fecha_venta")
-    private LocalDateTime fechaVenta;
+    @Column(name = "unidades_vendidas")
+    private Integer unidadesVendidas;
 
 }

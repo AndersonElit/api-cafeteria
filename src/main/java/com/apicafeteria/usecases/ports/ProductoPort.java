@@ -10,5 +10,6 @@ public interface ProductoPort {
     List<Producto> listarProductos();
 
     void crearProducto(ProductoRequest request);
+    void eliminarProducto(Integer id);
 
 }

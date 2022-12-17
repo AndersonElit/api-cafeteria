@@ -24,4 +24,8 @@ public class ProductoService {
         this.productoPort.crearProducto(request);
     }
 
+    public void eliminarProducto(Integer id) {
+        this.productoPort.eliminarProducto(id);
+    }
+
 }

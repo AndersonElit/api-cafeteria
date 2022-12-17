@@ -31,4 +31,9 @@ public class ProductoAdapter implements ProductoPort {
         }
     }
 
+    @Override
+    public void eliminarProducto(Integer id) {
+        this.productoRepository.eliminarProducto(id);
+    }
+
 }
